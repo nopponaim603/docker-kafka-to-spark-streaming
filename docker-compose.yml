@@ -1,0 +1,18 @@
+version: "3"
+services:
+  kafka:
+    image: antlypls/kafka:0.10.0.1
+    environment:
+      - KAFKA=localhost:9092
+      - ZOOKEEPER=localhost:2181
+    expose:
+      - "2181"
+      - "9092"
+
+  spark:
+    image: ricardogaspar2/spark-streaming-kafka
+    command: bash
+    volumes:
+      - ./target/scala-2.11:/app
+    links:
+    - kafka
