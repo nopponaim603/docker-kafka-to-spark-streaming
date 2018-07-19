@@ -11,8 +11,8 @@ services:
 
   spark:
     image: ricardogaspar2/spark-streaming-kafka
-    command: bash
     volumes:
-      - ./target/scala-2.11:/app
+      - "~:/root/host_shared_dir" # for windows
+      # - "~:/root/_host_shared_dir" # for unix
     links:
     - kafka
