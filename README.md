@@ -20,8 +20,8 @@ see: <https://spark.apache.org/docs/2.2.0/streaming-kafka-integration.html>
 Use `docker-compose.yml` located in git repo to launch a container with Kafka server together with the `ricardogadpar2/spark-streaming-kafka` container.
 In the service `spark`of this file, in section `volumes` a volume is specified to share the host home directory with the spark container. This sharing depends on the host OS:
 
-- **Windows:** ```~:/root/host_shared_dir"```. In addition the file `.env` with the property ```COMPOSE_CONVERT_WINDOWS_PATHS=1``` must exist alongside the `docker-compose.yml` file.
-- **Linux:** ```~:/root/_host_shared_dir"```. In addition remove the `.env` file or comment the line with ```COMPOSE_CONVERT_WINDOWS_PATHS=1```
+- **Windows:** ```"~:/root/host_shared_dir"```. In addition the file `.env` with the property ```COMPOSE_CONVERT_WINDOWS_PATHS=1``` must exist alongside the `docker-compose.yml` file.
+- **Linux:** ```"~:/root/_host_shared_dir"```. In addition remove the `.env` file or comment the line with ```COMPOSE_CONVERT_WINDOWS_PATHS=1```
 
 To launch the containers with kafka and spark:
 
