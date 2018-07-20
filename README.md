@@ -25,7 +25,7 @@ In the service `spark`of this file, in section `volumes` a volume is specified t
 
 To launch the containers with kafka and spark:
 
-1. launch a terminal and go to the path where the `docker-compose.yml` file is
+1. launch a terminal and go to the same directory where the `docker-compose.yml` file is located. **If your not in the same directory the following commands  will not work**.
 2. run: ```docker-compose up```
 3. to open a terminal on kafka container: ```docker exec -it $(docker-compose ps -q kafka) bash```
 4. to open a terminal on spark container: ```docker exec -it $(docker-compose ps -q spark) bash```
