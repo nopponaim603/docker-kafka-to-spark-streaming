@@ -8,6 +8,10 @@ services:
     expose:
       - "2181"
       - "9092"
+    networks:
+      # you may set custom IP addresses
+      front:
+        ipv4_address: 172.16.238.10
 
   spark:
     image: ricardogaspar2/spark-streaming-kafka
@@ -15,4 +19,22 @@ services:
       - "~:/root/host_shared_dir" # for windows
       # - "~:/root/_host_shared_dir" # for unix
     links:
-    - kafka
+      - kafka
+    networks:
+      # you may set custom IP addresses
+      front:
+        ipv4_address: 172.16.238.11
+
+networks:
+  front:
+    # use the bridge driver, but enable IPv6
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
+        - subnet: "2001:3984:3989::/64"
+          gateway: "2001:3984:3989::1"
