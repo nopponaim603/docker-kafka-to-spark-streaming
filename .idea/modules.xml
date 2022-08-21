@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/docker-kafka-to-spark-streaming.iml" filepath="$PROJECT_DIR$/.idea/docker-kafka-to-spark-streaming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark/StreamHandler/.idea/modules/streamhandler_4767.iml" filepath="$PROJECT_DIR$/spark/StreamHandler/.idea/modules/streamhandler_4767.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark/StreamHandler/.idea/modules/streamhandler_4767-build.iml" filepath="$PROJECT_DIR$/spark/StreamHandler/.idea/modules/streamhandler_4767-build.iml" />
     </modules>
   </component>
 </project>

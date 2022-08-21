@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="streamhandler_4767:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/streamhandler_4767_jar</output-path>
+    <root id="archive" name="streamhandler_4767.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/spark/StreamHandler/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="streamhandler_4767" />
+      <element id="extracted-dir" path="$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.13.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.13.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
