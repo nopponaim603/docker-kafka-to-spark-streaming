@@ -1,17 +1,41 @@
-version: "3"
+version: "3.7"
 services:
-  kafka:
-    image: antlypls/kafka:0.10.0.1
+  flume:
+    image: nopponaim603/flume:kafka
+    ports:
+      - "44444:44444"
+    volumes:
+      - ./logs:/opt/tmp/
     environment:
-      - KAFKA=localhost:9092
-      - ZOOKEEPER=localhost:2181
-    expose:
-      - "2181"
-      - "9092"
+      - FLUME_AGENT_NAME=docker
+    networks:
+      # you may set custom IP addresses
+      front:
+        ipv4_address: 172.16.238.2
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_CREATE_TOPICS: "sample_topic:1:1,android:1:1,acceleration:1:1"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       # you may set custom IP addresses
       front:
         ipv4_address: 172.16.238.10
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      # you may set custom IP addresses
+      front:
+        ipv4_address: 172.16.238.11
 
   spark:
     image: ricardogaspar2/spark-streaming-kafka
@@ -20,10 +44,13 @@ services:
       # - "~:/root/_host_shared_dir" # for unix
     links:
       - kafka
+    ports:
+      - "8080:8080"
     networks:
       # you may set custom IP addresses
       front:
-        ipv4_address: 172.16.238.11
+        ipv4_address: 172.16.238.12
+
 
 networks:
   front:
